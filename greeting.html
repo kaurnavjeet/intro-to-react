@@ -10,22 +10,43 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
- 
+
   <script type="text/babel">
-    class Greeting extends React.Component {
+    class Profile extends React.Component {
+      constructor(props){
+        super(props);
+        this.state = {
+          age: 25
+        }
+      }
+
       render() {
         return (
           <div>
-            <h1>Hello World!</h1>
+            <img src={this.props.image} alt="Bloc-logo"/>
+            <h3>{this.props.name}</h3>
+            <p>{this.props.label}</p>
+            <p>Age: {this.state.age}</p>
           </div>
         );
       }
     }
 
+    const profile = {
+      name: "Navjeet Kaur",
+      image: "https://avatars0.githubusercontent.com/u/1441485?v=4&s=280",
+      label: "Web Developer",
+    }
+
     ReactDOM.render(
-      <Greeting />, document.getElementById('app')
+      <Profile
+        image={profile.image}
+        name={profile.name}
+        label={profile.label}
+        />, document.getElementById("app")
     );
-  </script> 
+
+  </script>
  </body>
 
 </html>
